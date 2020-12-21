@@ -14,22 +14,22 @@ source=('git+https://github.com/ninelore/ly-enhanced.git')
 md5sums=('SKIP')
 
 pkgver() {
-	cd ly
+	cd ly-enhanced
 	git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
-	cd ly
+	cd ly-enhanced
 	make github
 }
 
 build() {
-	cd ly
+	cd ly-enhanced
 	make
 }
 
 package() {
-	cd ly
+	cd ly-enhanced
 	make DESTDIR="$pkgdir" install
 	install -D -m644 license.md "${pkgdir}/usr/share/licenses/${pkgname}/WTFPL"
 }
