@@ -1,6 +1,6 @@
 # Maintainer: Ingo Reitz <ninelore@protonmail.com>
 pkgname=ly-quiet-git
-pkgver=0.5.1.r0.gf6658f8
+pkgver=0.5.2.r3.gcb9b8bd
 pkgrel=1
 pkgdesc="TUI display manager with silenced Xorg STDOUT"
 arch=('i686' 'x86_64' 'aarch64')
@@ -8,7 +8,7 @@ url="https://github.com/ninelore/ly"
 license=('custom:WTFPL')
 makedepends=('git')
 depends=('pam' 'xorg-xauth')
-conflicts=('ly' 'python-ly-git')
+conflicts=('ly' 'ly-git' 'python-ly-git')
 backup=('etc/ly/config.ini')
 source=('git+https://github.com/ninelore/ly.git')
 md5sums=('SKIP')
