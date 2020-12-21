@@ -4,13 +4,13 @@ pkgver=0.5.2.r3.gcb9b8bd
 pkgrel=1
 pkgdesc="TUI display manager with silenced Xorg STDOUT"
 arch=('i686' 'x86_64' 'aarch64')
-url="https://github.com/ninelore/ly"
+url="https://github.com/ninelore/ly-enhanced"
 license=('custom:WTFPL')
 makedepends=('git')
 depends=('pam' 'xorg-xauth')
 conflicts=('ly' 'ly-git' 'python-ly-git')
 backup=('etc/ly/config.ini')
-source=('git+https://github.com/ninelore/ly.git')
+source=('git+https://github.com/ninelore/ly-enhanced.git')
 md5sums=('SKIP')
 
 pkgver() {
