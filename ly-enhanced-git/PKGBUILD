@@ -1,6 +1,6 @@
 # Maintainer: Ingo Reitz <ninelore@protonmail.com>
 pkgname=ly-enhanced-git
-pkgver=0.5.2.r3.gcb9b8bd
+pkgver=0.6.0.r0.gb31974c
 pkgrel=1
 pkgdesc="TUI display manager with silenced Xorg STDOUT"
 arch=('i686' 'x86_64' 'aarch64')
