@@ -1,6 +1,8 @@
+# ignore everything
 **/*
 
-!PKGBUILD
+# execpt everything in root
+!/* 
 
-!README.md
-!.gitignore
+# exept PKGBUILD
+!PKGBUILD
