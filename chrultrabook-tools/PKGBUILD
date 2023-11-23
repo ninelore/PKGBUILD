@@ -26,8 +26,7 @@ package() {
 	cd "$srcdir/$gitname-$pkgver"
     
     # binaries
-	##install -Dm755 target/release/chrultrabook-tools "${pkgdir}/usr/bin/chrultrabook-tools"
-    install -Dm755 src-tauri/target/release/chrultrabook-tools "${pkgdir}/usr/bin/chrultrabook-tools"
+	install -Dm755 target/release/chrultrabook-tools "${pkgdir}/usr/bin/chrultrabook-tools"
     install -Dm755 "${srcdir}/ectool" "${pkgdir}/usr/bin/ectool"
     install -Dm4755 "${srcdir}/cbmem" "${pkgdir}/usr/bin/cbmem"
 
