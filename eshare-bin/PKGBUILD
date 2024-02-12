@@ -1,0 +1,27 @@
+# Maintainer: Ingo Reitz <ninelore@protonmailc.com>
+
+pkgname=eshare-bin
+pkgver=7.5.0118
+pkgrel=1
+pkgdesc="EShare Screensharing app"
+arch=('x86_64')
+url="https://eshare.app"
+license=('EULA')
+groups=()
+depends=()
+source=('https://cdn.sharemax.cn/rel/linux/EShareClient_v7.5.0118_amd64.deb')
+sha256sums=('b0c9f6f7abbd48fd0bdb191ab5dd41dd68ee4b688e10505f8d79048aeae14233')
+
+package() {
+	tar -xaf data.tar.xz -C "${pkgdir}"
+    rm "${pkgdir}/EShareClient_Ubuntu_v7.5.0118_amd64.deb"
+    rm "${pkgdir}/EShareClient_Ubuntu_v7.5.0117_amd64.deb"
+    mv "${pkgdir}"/opt/EShare/extralib_2204/* "${pkgdir}/opt/EShare/lib/"
+    rm -r "${pkgdir}/opt/EShare/extralib_2004"
+    rm -r "${pkgdir}/opt/EShare/extralib_2204"
+    mkdir -p "${pkgdir}/usr/share/applications"
+    mkdir -p "${pkgdir}/usr/bin"
+    cp "${pkgdir}/opt/EShare/EShare.desktop" "${pkgdir}/usr/share/applications/"
+    ln -s "/opt/EShare/EShare" "${pkgdir}/usr/bin/EShare"
+}
+ 
