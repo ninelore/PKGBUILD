@@ -1,0 +1,22 @@
+# Maintainer: Ingo Reitz <ninelore@protonmail.com>
+pkgname=cbmem
+pkgver=1
+pkgrel=1
+pkgdesc="coreboot cbmem"
+arch=('x86_64' 'aarch64')
+url="https://www.coreboot.org/"
+license=('MIT')
+depends=('libftdi')
+makedepends=()
+source=("git+https://github.com/coreboot/coreboot")
+sha256sums=(SKIP)
+
+build() {
+	cd "$srcdir/coreboot/util/cbmem/"
+    make
+}
+
+package() {
+	cd "$srcdir/coreboot/util/cbmem/"
+    install -Dm4755 "cbmem" "${pkgdir}/usr/bin/cbmem"
+}
