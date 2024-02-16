@@ -1,0 +1,21 @@
+# Maintainer: Ingo Reitz <ninelore@protonmail.com>
+pkgname=gsctool
+pkgver=1
+pkgrel=1
+pkgdesc="ChromiumOS Embedded Controller GSCTool"
+arch=('x86_64' 'aarch64')
+url="https://chromium.googlesource.com/chromiumos/platform/ec"
+license=('MIT')
+depends=('libftdi')
+makedepends=()
+source=("git+https://chromium.googlesource.com/chromiumos/platform/ec#branch=gsc_utils")
+sha256sums=(SKIP)
+
+build() {
+	cd "$srcdir/ec/extra/usb_updater"
+    make
+}
+
+package() {
+    install -Dm4755 "$srcdir/ec/extra/usb_updater/gsctool" "${pkgdir}/usr/bin/gsctool"
+}
