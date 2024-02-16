@@ -1,0 +1,30 @@
+# Maintainer: Ingo Reitz <ninelore@protonmail.com>
+pkgname=cbfstool
+pkgver=1
+pkgrel=1
+pkgdesc="coreboot cbfstool"
+arch=('x86_64' 'aarch64')
+url="https://www.coreboot.org/"
+license=('MIT')
+depends=('libftdi')
+makedepends=()
+source=("git+https://github.com/coreboot/coreboot"
+        "git+https://review.coreboot.org/vboot")
+sha256sums=('SKIP'
+            'SKIP')
+
+prepare() {
+    cd "$srcdir/coreboot/util/cbfstool/"
+    git config submodule.vboot.url "$srcdir/vboot"
+    git -c protocol.file.allow=always submodule update
+}
+
+build() {
+	cd "$srcdir/coreboot/util/cbfstool/"
+    make
+}
+
+package() {
+	cd "$srcdir/coreboot/util/cbfstool/"
+    install -Dm4755 "cbfstool" "${pkgdir}/usr/bin/cbfstool"
+}
