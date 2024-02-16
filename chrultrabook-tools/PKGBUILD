@@ -1,6 +1,5 @@
 # Maintainer: Ingo Reitz <ninelore@protonmail.com>
 pkgname=chrultrabook-tools
-gitname=Chrultrabook-Tools
 pkgver=2.8.4
 pkgrel=1
 pkgdesc="User-friendly configuration utility for Chromebooks running an alternate OS"
@@ -9,17 +8,17 @@ url="https://github.com/death7654/Chrultrabook-Tools"
 license=('GPL-3.0-only')
 depends=('webkit2gtk')
 makedepends=('nodejs' 'npm' 'cargo' 'base-devel' 'curl' 'wget' 'file' 'openssl' 'appmenu-gtk-module' 'gtk3' 'libappindicator-gtk3' 'librsvg' 'libvips')
-source=("$gitname-$pkgver.tar.gz::https://github.com/death7654/Chrultrabook-Tools/archive/refs/tags/$pkgver.tar.gz")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/death7654/Chrultrabook-Tools/archive/refs/tags/$pkgver.tar.gz")
 sha256sums=('eb49903ceda73542d096818851a5ec2df1cb223e409b28154ba9faf1495bf7d3')
 
 build() {
-	cd "$srcdir/$gitname-$pkgver"
+	cd "$srcdir/$pkgname-$pkgver"
 	npm install
 	npx tauri build -b none
 }
 
 package() {
-	cd "$srcdir/$gitname-$pkgver"
+	cd "$srcdir/$pkgname-$pkgver"
     
     # binaries
 	install -Dm755 target/release/chrultrabook-tools "${pkgdir}/usr/bin/chrultrabook-tools"
