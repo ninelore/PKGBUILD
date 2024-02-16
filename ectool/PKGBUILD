@@ -1,0 +1,26 @@
+# Maintainer: Ingo Reitz <ninelore@protonmail.com>
+pkgname=ectool
+pkgver=1
+pkgrel=1
+pkgdesc="Utility to control a Chromebook embedded controller"
+arch=('x86_64' 'aarch64')
+url="https://github.com/death7654/Chrultrabook-Tools"
+license=('MIT')
+depends=('libftdi')
+makedepends=()
+source=("git+https://gitlab.howett.net/DHowett/ectool")
+sha256sums=(SKIP)
+
+prepare() {
+    cd "$srcdir/ectool"
+	cmake .
+}
+
+build() {
+	cd "$srcdir/ectool"
+    make
+}
+
+package() {
+    install -Dm4755 "$srcdir/src/ectool" "${pkgdir}/usr/bin/ectool"
+}
