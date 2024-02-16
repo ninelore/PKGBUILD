@@ -10,12 +10,8 @@ url="https://github.com/death7654/Chrultrabook-Tools"
 license=('GPL-3.0-only')
 depends=('webkit2gtk')
 makedepends=('nodejs' 'npm' 'cargo' 'base-devel' 'curl' 'wget' 'file' 'openssl' 'appmenu-gtk-module' 'gtk3' 'libappindicator-gtk3' 'librsvg' 'libvips')
-source=("git+https://github.com/death7654/Chrultrabook-Tools"
-        "https://tree123.org/chrultrabook/utils/ectool"
-        "https://tree123.org/chrultrabook/utils/cbmem")
-sha256sums=(SKIP
-            '8399b77a95d3b305c11f5283a1dfcd3ac9d6ce92b7731a4746abbec9229ba88c'
-            'e8634d54a05593b49c8481caebc8f47446e574517dd478bfba651dcc8a2b8882')
+source=("git+https://github.com/death7654/Chrultrabook-Tools")
+sha256sums=(SKIP)
 
 build() {
 	cd "$srcdir/Chrultrabook-Tools"
@@ -27,9 +23,7 @@ package() {
 	cd "$srcdir/Chrultrabook-Tools"
     
     # binaries
-	install -Dm755 target/release/chrultrabook-tools "${pkgdir}/usr/bin/chrultrabook-tools"
-    install -Dm755 "${srcdir}/ectool" "${pkgdir}/usr/bin/ectool"
-    install -Dm4755 "${srcdir}/cbmem" "${pkgdir}/usr/bin/cbmem"
+	  install -Dm755 target/release/chrultrabook-tools "${pkgdir}/usr/bin/chrultrabook-tools"
 
     # udev rule
     install -Dm755 linux/99-cros-ec.rules "${pkgdir}/etc/udev/rules.d/99-cros-ec.rules"
