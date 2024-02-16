@@ -1,0 +1,30 @@
+# Maintainer: Ingo Reitz <ninelore@protonmail.com>
+pkgname=flashrom-chromium
+pkgver=1.3.0
+pkgrel=1
+pkgdesc="flashrom is a utility for detecting, reading, writing, verifying and erasing flash chips"
+arch=('x86_64' 'aarch64')
+url="https://www.flashrom.org/"
+license=('GPL-2.0-only')
+conflicts=('flashrom')
+provides=('flashrom')
+depends=()
+makedepends=('gcc' 'meson' 'ninja' 'pkg-config' 'pciutils' 'libusb' 'libftdi' 'libjaylink')
+source=("git+https://chromium.googlesource.com/chromiumos/third_party/flashrom")
+sha256sums=(SKIP)
+
+prepare() {
+    cd "$srcdir/flashrom/"
+    mkdir -p builddir
+    meson setup --prefix "${pkgdir}/usr" builddir
+}
+
+build() {
+	cd "$srcdir/flashrom/"
+    meson compile -C builddir
+}
+
+package() {
+	cd "$srcdir/flashrom/"
+    meson install -C builddir
+}
