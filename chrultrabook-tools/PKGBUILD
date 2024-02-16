@@ -13,13 +13,13 @@ source=("$gitname-$pkgver.tar.gz::https://github.com/death7654/Chrultrabook-Tool
 sha256sums=('eb49903ceda73542d096818851a5ec2df1cb223e409b28154ba9faf1495bf7d3')
 
 build() {
-	cd "$srcdir/Chrultrabook-Tools"
+	cd "$srcdir/$gitname-$pkgver"
 	npm install
 	npx tauri build -b none
 }
 
 package() {
-	cd "$srcdir/Chrultrabook-Tools"
+	cd "$srcdir/$gitname-$pkgver"
     
     # binaries
 	install -Dm755 target/release/chrultrabook-tools "${pkgdir}/usr/bin/chrultrabook-tools"
