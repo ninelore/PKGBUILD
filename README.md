@@ -1,2 +1,3 @@
-# PKGBUILD (currently empty)
+# PKGBUILD
+
 ninelore's custom arch linux PKGBUILD's
