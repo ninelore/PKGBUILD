@@ -1,6 +1,6 @@
 # Maintainer: Ingo Reitz <ninelore@protonmail.com>
 pkgname=flashrom-chromium
-pkgver=1.3.0
+pkgver=1
 pkgrel=1
 pkgdesc="flashrom is a utility for detecting, reading, writing, verifying and erasing flash chips"
 arch=('x86_64' 'aarch64')
