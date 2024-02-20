@@ -1,0 +1,14 @@
+pkgname=flashrom-libpci38-wtt-bin
+pkgver=1
+pkgrel=1
+pkgdesc="flashrom binary by WeirdTreeThing"
+arch=('x86_64')
+license=('GPL-2.0-only')
+groups=()
+depends=()
+source=('https://tree123.org/chrultrabook/utils/flashrom-libpci38')
+sha256sums=('0cd59617cde1d14cd8d84334e44ea9473ae8bee83f4fc70e8da1d35c099c8102')
+
+package() {
+    install -Dm4755 "$srcdir/flashrom-libpci38" "${pkgdir}/usr/bin/flashrom-libpci38"
+}
